@@ -6,8 +6,9 @@
     - name: Gather show version output
       cisco.nxos.nxos_command:
         commands:
+          - show version
           - show lldp neighbors
       register: show_commands
 
     - ansible.builtin.debug:
-        var: show_commands["stdout_lines"]
+        var: show_commands["stdout_lines"][1]
