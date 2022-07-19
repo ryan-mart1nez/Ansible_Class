@@ -7,7 +7,7 @@
         commnads:
           - command: clear logging
             prompt: confirm
-            answer: "yes"
+            answer: "y"
       register: output
 
     - debug:
