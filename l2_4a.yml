@@ -1,0 +1,14 @@
+---
+- name: l2 4a
+  hosts: cisco6
+  gather_facts: false
+  tasks:
+    - cisco.ios.ios_command:
+        commnads:
+          - command: clear logging
+            prompt: confirm
+            answer: "yes"
+      register: output
+
+    - debug:
+        var: output
