@@ -1,5 +1,5 @@
 ---
-- name: Exercise 3a
+- name: Exercise 3c
   hosts: nxos
   gather_facts: false
   tasks:
@@ -10,4 +10,4 @@
       register: show_commands
 
     - ansible.builtin.debug:
-        var: show_commands["stdout_lines"][1]
+        var: show_commands["stdout_lines"]
