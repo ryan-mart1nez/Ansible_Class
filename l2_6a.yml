@@ -8,10 +8,6 @@
         commands: show ip arp | json
       register: show_ip_arp
 
-    - name: print to stdout
-      ansible.builtin.debug:
-        msg: show_ip_arp
-
     - name: Flatten JSON and print to STDOUT
       debug:
         msg: "{{ lookup('ansible.utils.to_paths', show_ip_arp) }}"
