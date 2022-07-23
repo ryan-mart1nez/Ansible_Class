@@ -13,4 +13,4 @@
 
     - name: filter and print primary ip
       ansible.builtin.debug:
-        var: primary_ip.split()
+        var: primary_ip.split()[-1]
