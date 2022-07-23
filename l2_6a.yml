@@ -1,13 +1,17 @@
 ---
-- name: Exercise 6a
+- name: Exercise 6b
   hosts: arista
   gather_facts: false
   tasks:
     - name: gather show ip arp
-      arista.eos.eos.command:
+      arista.eos.eos_command:
         commands: show ip arp | json
       register: show_ip_arp
 
     - name: print to stdout
       ansible.builtin.debug:
         msg: show_ip_arp
+
+    - name: Print out flatten interfaces input
+      debug:
+        msg: "{{ lookup('ansible.utils.to_paths', show_ip_arp) }}"
