@@ -1,0 +1,13 @@
+---
+- name: Exercise 6a
+  hosts: arista
+  gather_facts: false
+  tasks:
+    - name: gather show ip arp
+      arista.eos.eos.command:
+        commands: show ip arp
+      register: show_ip_arp
+
+    - name: print to stdout
+      ansible.builtin.debug:
+        msg: show_ip_arp
