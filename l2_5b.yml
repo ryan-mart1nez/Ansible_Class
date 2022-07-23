@@ -1,5 +1,5 @@
 ---
-- name: Exercise 5b
+- name: Exercise 5c
   hosts: juniper
   gather_facts: false
   tasks:
@@ -8,6 +8,9 @@
         commands: show interfaces terse
       register: show_output
 
-    - name: print show_output to stdout
+    - ansible.builtin.set_fact:
+        primary_ip: "{{ show_output['stdout_lines'][0][21] }}"
+
+    - name: filter and print primary ip
       ansible.builtin.debug:
-        var: show_output['stdout_lines'[0][21]]
+        var: primary_ip.split()
