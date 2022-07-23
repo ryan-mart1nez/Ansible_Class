@@ -1,0 +1,21 @@
+---
+- name: diff test file 1
+  hosts: cisco5:cisco6
+  gather_facts: false
+  tasks:
+    - cisco.ios.ios_command:
+        commands:
+          - command: clear counters gigabitEthernet1
+            # Regular expression for "prompt"--simplify
+            # Clear "show interfaces" counters on this interface [confirm]
+            prompt: confirm  # regular expression
+            answer: "y"
+      register: output
+
+    - debug:
+        var: output
+
+    - name: Execute IOS Command
+      cisco.ios.command:
+        commands: show interfaces gigabitEthernet1
+      register: output
