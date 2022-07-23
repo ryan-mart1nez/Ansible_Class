@@ -12,6 +12,6 @@
       ansible.builtin.debug:
         msg: show_ip_arp
 
-    - name: Print out flatten interfaces input
+    - name: Flatten JSON and print to STDOUT
       debug:
         msg: "{{ lookup('ansible.utils.to_paths', show_ip_arp) }}"
