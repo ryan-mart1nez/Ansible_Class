@@ -1,2 +1,11 @@
----
-- name: this is a test file for gitgutter
+--- # Shopping List in Block Format
+- milk
+
+
+
+
+- eggs
+- juice
+
+--- # Shopping List in Inline Format
+[milk, eggs, juice]
